@@ -16,7 +16,7 @@
     <!-- Link to your external CSS file -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Tailwind Config - Keep this here or move to a separate JS file if preferred -->
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -123,11 +123,7 @@
         <!-- Section 2: About Me -->
         <section id="about" class="py-20">
             <div class="text-center mb-4">
-                <h2 class="text-4xl font-bold inline">About Me</h2>
-                <button id="rewrite-bio-btn" class="ml-4 bg-brand-primary/10 text-brand-primary font-semibold py-2 px-4 rounded-lg hover:bg-brand-primary/20 transition-all duration-300 text-sm inline-flex items-center gap-2">
-                    ✨ Rewrite Bio
-                    <span id="bio-loader" class="hidden loader !w-4 !h-4"></span>
-                </button>
+                <h2 class="text-4xl font-bold text-center">About Me</h2>
             </div>
             <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
             
@@ -186,10 +182,7 @@
         <!-- Section 4: Projects -->
         <section id="projects" class="py-20">
              <div class="text-center mb-4">
-                <h2 class="text-4xl font-bold inline">My Projects</h2>
-                 <button id="suggest-project-btn" class="ml-4 bg-brand-primary/10 text-brand-primary font-semibold py-2 px-4 rounded-lg hover:bg-brand-primary/20 transition-all duration-300 text-sm inline-flex items-center gap-2">
-                    ✨ Suggest a Project
-                </button>
+                <h2 class="text-4xl font-bold text-center">My Projects</h2>
             </div>
             <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
 
@@ -358,17 +351,8 @@
         </div>
     </footer>
 
-    <!-- Project Suggestion Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-sm z-50 hidden items-center justify-center animate-fade-in">
-        <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-w-2xl w-full m-4 relative">
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-brand-gray-400 hover:text-brand-light text-3xl leading-none">&times;</button>
-            <div id="modal-content">
-                <!-- AI content will be injected here -->
-            </div>
-        </div>
-    </div>
-
     <!-- Link to your external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
+
