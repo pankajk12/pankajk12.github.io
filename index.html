@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Kumar - MERN Developer Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind Config - Keep this here or move to a separate JS file if preferred -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-primary': '#14F195',
+                        'brand-dark': '#0A0A0A',
+                        'brand-light': '#F5F5F5',
+                        'brand-gray': {
+                            100: '#E0E0E0', 200: '#C2C2C2', 300: '#A3A3A3',
+                            400: '#858585', 500: '#666666', 600: '#4D4D4D',
+                            700: '#333333', 800: '#1F1F1F', 900: '#141414'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'subtle-shine': 'subtleShine 2s infinite alternate',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        subtleShine: {
+                            '0%': { boxShadow: '0 0 5px rgba(20, 241, 149, 0.2)' },
+                            '100%': { boxShadow: '0 0 20px rgba(20, 241, 149, 0.5)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased">
+
+    <canvas id="background-canvas"></canvas>
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/80 backdrop-blur-sm transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-brand-primary">Pankaj Kumar</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">Home</a>
+                <a href="#about" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">About</a>
+                <a href="#experience" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">Experience</a>
+                <a href="#projects" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">Projects</a>
+                <a href="#achievements" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">Achievements</a>
+                <a href="#contact" class="text-brand-gray-100 hover:text-brand-primary transition-colors duration-300">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-brand-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#home" class="block py-2 text-brand-gray-100 hover:text-brand-primary">Home</a>
+            <a href="#about" class="block py-2 text-brand-gray-100 hover:text-brand-primary">About</a>
+            <a href="#experience" class="block py-2 text-brand-gray-100 hover:text-brand-primary">Experience</a>
+            <a href="#projects" class="block py-2 text-brand-gray-100 hover:text-brand-primary">Projects</a>
+            <a href="#achievements" class="block py-2 text-brand-gray-100 hover:text-brand-primary">Achievements</a>
+            <a href="#contact" class="block py-2 text-brand-gray-100 hover:text-brand-primary">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 relative z-10">
+
+        <!-- Section 1: Hero -->
+        <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center pt-24 md:pt-0">
+            <div class="md:w-1/2 text-center md:text-left animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">Hi, I'm Pankaj Kumar</h1>
+                <h2 class="text-2xl md:text-4xl text-brand-primary font-semibold mt-2">
+                    <span id="typewriter"></span><span class="typewriter-cursor"></span>
+                </h2>
+                <p class="mt-6 text-lg text-brand-gray-200 max-w-xl mx-auto md:mx-0">
+                    A B.Tech graduate skilled in building full-stack web applications with the MERN stack. I have a passion for creating responsive, user-friendly interfaces and delivering efficient, scalable solutions.
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="bg-brand-primary text-brand-dark font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-brand-primary/40">
+                        Get In Touch
+                    </a>
+                    <a href="PankajKumar(Mern)Resume.pdf" download="PankajKumar_Resume.pdf" class="bg-brand-gray-800 text-brand-light font-bold py-3 px-6 rounded-lg hover:bg-brand-gray-700 transition-all duration-300">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-brand-gray-800 border-4 border-brand-primary/50 shadow-2xl animate-subtle-shine">
+                    <img src="image.jpg" 
+                         alt="Pankaj Kumar's Portrait" 
+                         class="w-full h-full object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x400/1F1F1F/F5F5F5?text=Pankaj\nKumar';">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: About Me -->
+        <section id="about" class="py-20">
+            <div class="text-center mb-4">
+                <h2 class="text-4xl font-bold inline">About Me</h2>
+                <button id="rewrite-bio-btn" class="ml-4 bg-brand-primary/10 text-brand-primary font-semibold py-2 px-4 rounded-lg hover:bg-brand-primary/20 transition-all duration-300 text-sm inline-flex items-center gap-2">
+                    ✨ Rewrite Bio
+                    <span id="bio-loader" class="hidden loader !w-4 !h-4"></span>
+                </button>
+            </div>
+            <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div id="about-me-content" class="md:w-2/3 text-lg text-brand-gray-200 space-y-4">
+                    <p>I am a B.Tech graduate from United University with practical experience in MERN stack development (MongoDB, Express.js, React.js, Node.js). Based in Lucknow, India, I am skilled in building full-stack web applications, developing RESTful APIs, and managing databases.</p>
+                    <p>I possess strong problem-solving abilities, adapt quickly to new technologies, and am committed to delivering efficient and scalable solutions. I am seeking a MERN Stack Developer role to contribute to impactful projects in a growth-oriented organization.</p>
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    <ul id="skills-list" class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2 mt-4 text-brand-gray-100">
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>JavaScript</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>React.js</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>Node.js</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>Express.js</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>MongoDB</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>MySQL</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>Python</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>Java</li>
+                        <li class="flex items-center"><span class="text-brand-primary mr-2">▹</span>Git</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/3 flex justify-center">
+                     <div class="w-60 h-80 relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-brand-primary rounded-lg blur opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://placehold.co/400x600/1F1F1F/F5F5F5?text=Coding" 
+                             alt="Coding workspace" 
+                             class="relative w-full h-full object-cover rounded-lg"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x600/1F1F1F/F5F5F5?text=Image\nNot+Found';">
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Experience -->
+        <section id="experience" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Experience</h2>
+            <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-brand-primary/30 transition-shadow duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-primary">Java Programming Trainee</h3>
+                            <p class="font-semibold text-brand-light">VileanX Advanced Technologies</p>
+                        </div>
+                        <p class="text-brand-gray-300">Summer 2024</p>
+                    </div>
+                    <ul class="mt-4 list-disc list-inside text-brand-gray-200 space-y-2">
+                        <li>Engineered unit tests for three core modules, achieving 100% test coverage.</li>
+                        <li>Collaborated with a cross-functional team to deliver results on time.</li>
+                        <li>Designed and integrated advanced data validation protocols, reducing input errors by 40%.</li>
+                        <li>Optimized system performance by implementing efficient algorithms, improving processing speed by 25%.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projects -->
+        <section id="projects" class="py-20">
+             <div class="text-center mb-4">
+                <h2 class="text-4xl font-bold inline">My Projects</h2>
+                 <button id="suggest-project-btn" class="ml-4 bg-brand-primary/10 text-brand-primary font-semibold py-2 px-4 rounded-lg hover:bg-brand-primary/20 transition-all duration-300 text-sm inline-flex items-center gap-2">
+                    ✨ Suggest a Project
+                </button>
+            </div>
+            <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Pet-Pulse -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=Pet-Pulse" alt="Pet-Pulse Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">Pet-Pulse</h3>
+                        <p class="text-brand-gray-300 mb-4">A user-friendly platform connecting pet owners with local service providers, featuring a rating system to enhance trust and engagement.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">React</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://github.com/pankajk12/Pet-pulse" target="_blank" rel="noopener noreferrer" class="text-brand-light hover:text-brand-primary font-semibold">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: CodaQuest -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=CodaQuest" alt="CodaQuest Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">CodaQuest Technical Website</h3>
+                        <p class="text-brand-gray-300 mb-4">A technical website with daily quizzes and a to-do list system to boost task completion, powered by a robust MERN stack backend.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Express.js</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://github.com/pankajk12/CodaQuest" target="_blank" rel="noopener noreferrer" class="text-brand-light hover:text-brand-primary font-semibold">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Derma-Scan -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=Derma-Scan" alt="Derma-Scan Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">Derma-Scan</h3>
+                        <p class="text-brand-gray-300 mb-4">An AI-powered web app for preliminary skin condition analysis. Features secure image uploads and integrates a machine learning model.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">JavaScript</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">HTML/CSS</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Machine Learning</span>
+                        </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://github.com/pankajk12/DERMASCAN" target="_blank" rel="noopener noreferrer" class="text-brand-light hover:text-brand-primary font-semibold">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: Chat Application -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=Chat+App" alt="Chat App Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">Real-Time Chat Application</h3>
+                        <p class="text-brand-gray-300 mb-4">A full-stack chat application with private and global chat functionality, built with Socket.IO for real-time communication and JWT for security.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">MERN Stack</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Socket.IO</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">JWT</span>
+                        </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://github.com/pankajk12/Chat-App" target="_blank" rel="noopener noreferrer" class="text-brand-light hover:text-brand-primary font-semibold">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: To-Do List -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=To-Do+List" alt="To-Do List Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">To-Do List App</h3>
+                        <p class="text-brand-gray-300 mb-4">A responsive to-do list web app with full CRUD functionality. Implements local storage and user authentication for data persistence and security.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">React.js</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="https://github.com/pankajk12/To-do-List" target="_blank" rel="noopener noreferrer" class="text-brand-light hover:text-brand-primary font-semibold">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Laborer Sewa -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 shadow-lg hover:shadow-brand-primary/30">
+                    <img src="https://placehold.co/600x400/141414/14F195?text=Laborer+Sewa" alt="Laborer Sewa Project" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-2">Laborer Sewa</h3>
+                        <p class="text-brand-gray-300 mb-4">A platform designed to reduce job-seeking time for laborers and facilitate seamless interactions with customers, improving service delivery efficiency.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">MERN Stack</span>
+                            <span class="bg-brand-gray-800 text-brand-primary text-sm font-semibold px-2 py-1 rounded">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Achievements & Extracurriculars -->
+        <section id="achievements" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Achievements & Extracurriculars</h2>
+            <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                <!-- Achievement 1: Event Coordination -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-brand-primary/30 transition-shadow duration-300">
+                    <div class="text-brand-primary mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-light mb-2">Event Coordination</h3>
+                    <p class="text-brand-gray-300">Coordinated 2+ college events, engaging over 300 participants in coding and sports competitions.</p>
+                </div>
+                <!-- Achievement 2: Financial Success -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-brand-primary/30 transition-shadow duration-300">
+                    <div class="text-brand-primary mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-light mb-2">Financial Acumen</h3>
+                    <p class="text-brand-gray-300">Achieved a 15% net profit in the equity market over 3 months using data analytics.</p>
+                </div>
+                <!-- Achievement 3: Chess Accomplishment -->
+                <div class="bg-brand-gray-900/80 backdrop-blur-sm p-6 rounded-lg shadow-lg hover:shadow-brand-primary/30 transition-shadow duration-300">
+                    <div class="text-brand-primary mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-light mb-2">Strategic Thinking</h3>
+                    <p class="text-brand-gray-300">Reached Champion League on Chess.com with a peak rating of 1456 in Rapid Chess.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Contact -->
+        <section id="contact" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Get In Touch</h2>
+            <div class="w-20 h-1 bg-brand-primary mx-auto mb-12"></div>
+            
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg text-brand-gray-200 mb-8">
+                    My inbox is always open. Whether you have a question, a project proposal, or just want to say hi, feel free to reach out. I'll get back to you as soon as possible!
+                </p>
+                <a href="mailto:pankajkumar.tech2024@gmail.com" class="inline-block bg-brand-primary text-brand-dark font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-brand-primary/40">
+                    Say Hello
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-gray-900/80 backdrop-blur-sm border-t border-brand-gray-800">
+        <div class="container mx-auto py-8 px-6 text-center text-brand-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/pankajk12" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/pankajk12" target="_blank" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+            <p>&copy; <span id="year"></span> Pankaj Kumar. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed & Built by Pankaj Kumar</p>
+        </div>
+    </footer>
+
+    <!-- Project Suggestion Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-sm z-50 hidden items-center justify-center animate-fade-in">
+        <div class="bg-brand-gray-900/80 backdrop-blur-sm rounded-lg shadow-2xl p-8 max-w-2xl w-full m-4 relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-brand-gray-400 hover:text-brand-light text-3xl leading-none">&times;</button>
+            <div id="modal-content">
+                <!-- AI content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your external JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
