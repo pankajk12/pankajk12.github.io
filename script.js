@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Typewriter Effect ---
     const typewriterElement = document.getElementById('typewriter');
-    const roles = ["A MERN Stack Developer", "A Full-Stack Engineer", "A Problem Solver"];
+const roles = ["Crafting Pet Stores with Shopify", "Building Full-Stack Apps", "Solving Real-World Problems"];
     let roleIndex = 0, charIndex = 0, isDeleting = false;
     function type() {
         if (!typewriterElement) return; // Exit if element doesn't exist
